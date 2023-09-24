@@ -22,28 +22,30 @@ public class Main {
 
 
 
+//////////////////////////////////////////////////////////
+
         System.out.println();
         System.out.println("\t\t\t Task 2");
 
         System.out.print("Input n, n<400: ");
         int n = in.nextInt();
 
-        int[] A = new int[n];
+        int[] A1 = new int[n];
         for(int i = 0; i < n; i++)
         {
             System.out.print("Input " + i + " element: ");
-            A[i] = in.nextInt();
+            A1[i] = in.nextInt();
         }
 
         int maxUnic = Integer.MIN_VALUE;
 
         for (int i = 0; i < n; i++) {
-            int curNum = A[i];
+            int curNum = A1[i];
             boolean Unic = true;
 
             // Перевірка на унікальність:
             for (int j = 0; j < n; j++) {
-                if (i != j && curNum == A[j]) {
+                if (i != j && curNum == A1[j]) {
                     Unic = false;
                     break;
                 }
@@ -62,5 +64,62 @@ public class Main {
 
 
 
+/////////////////////////////////////////////////////////////
+
+        System.out.println();
+        System.out.println("\t\t\t Task 3");
+
+
+        System.out.print("Input n: ");
+        n = in.nextInt();
+
+        int[][] A = new int[n][n];
+        int[][] B = new int[n][n];
+
+        System.out.println("Input elements of matrix A:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = in.nextInt();
+            }
+        }
+
+        System.out.println("Input elements of matrix B:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                B[i][j] = in.nextInt();
+            }
+        }
+
+        int[] X = new int[n];
+
+
+        // Обчислюємо вектор X:
+
+        for (int i = 0; i < n; i++)
+        {
+            int negA = 0;
+            int negB = 0;
+
+            for (int j = 0; j < n; j++)
+            {
+                if (A[i][j] < 0) {
+                    negA++;
+                }
+                if (B[i][j] < 0) {
+                    negB++;
+                }
+            }
+
+            if (negA == negB) {
+                X[i] = 1;
+            } else {
+                X[i] = 0;
+            }
+        }
+
+        System.out.println("Vector X:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(X[i] + " ");
+        }
     }
 }
