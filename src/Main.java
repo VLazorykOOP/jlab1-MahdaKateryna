@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         Scanner in = new Scanner(System.in);
         System.out.println("Lab 1 Java");
         System.out.println("\t\t\t Task 1");
@@ -13,13 +13,12 @@ public class Main {
         System.out.print("Input b: ");
         float b = in.nextFloat();
 
-        float result = (a/(b*b-2)+b/(a*a+2)+(a*b)*(a*b)*(a*b));
+        float result = (a / (b * b - 2) + b / (a * a + 2) + (a * b) * (a * b) * (a * b));
 
-        if (b*b == 2)
+        if (b * b == 2)
             System.out.println("Division by 0");
         else
             System.out.println("Result: " + result);
-
 
 
 //////////////////////////////////////////////////////////
@@ -31,8 +30,7 @@ public class Main {
         int n = in.nextInt();
 
         int[] A1 = new int[n];
-        for(int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             System.out.print("Input " + i + " element: ");
             A1[i] = in.nextInt();
         }
@@ -63,7 +61,6 @@ public class Main {
         }
 
 
-
 /////////////////////////////////////////////////////////////
 
         System.out.println();
@@ -76,14 +73,14 @@ public class Main {
         int[][] A = new int[n][n];
         int[][] B = new int[n][n];
 
-        System.out.println("Input elements of matrix A:");
+        System.out.print("Input elements of matrix A: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 A[i][j] = in.nextInt();
             }
         }
 
-        System.out.println("Input elements of matrix B:");
+        System.out.print("Input elements of matrix B: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 B[i][j] = in.nextInt();
@@ -95,13 +92,11 @@ public class Main {
 
         // Обчислюємо вектор X:
 
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             int negA = 0;
             int negB = 0;
 
-            for (int j = 0; j < n; j++)
-            {
+            for (int j = 0; j < n; j++) {
                 if (A[i][j] < 0) {
                     negA++;
                 }
@@ -117,9 +112,38 @@ public class Main {
             }
         }
 
-        System.out.println("Vector X:");
+        System.out.print("Vector X: ");
         for (int i = 0; i < n; i++) {
             System.out.print(X[i] + " ");
         }
-    }
-}
+
+
+        ///////////////////////////////////////
+        System.out.println();
+        System.out.println("\t\t\t Task 4");
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input text: ");
+        String Text = scanner.nextLine();
+
+        String[] words = Text.split("\\s+");
+
+        StringBuilder res = new StringBuilder();
+
+        for (String word : words) {
+            char firstChar = word.charAt(0);
+            StringBuilder newWord = new StringBuilder().append(firstChar);
+
+            for (int i = 1; i < word.length(); i++) {
+                if (Character.toLowerCase(word.charAt(i)) != Character.toLowerCase(firstChar)) {
+                    newWord.append(word.charAt(i));
+                }
+            }
+
+            res.append(newWord.toString()).append(" ");
+        }
+
+        System.out.print("Result: ");
+        System.out.println(res.toString());
+
+    }}
