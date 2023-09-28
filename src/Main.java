@@ -73,14 +73,14 @@ public class Main {
         int[][] A = new int[n][n];
         int[][] B = new int[n][n];
 
-        System.out.print("Input elements of matrix A: ");
+        System.out.println("Input elements of matrix A: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 A[i][j] = in.nextInt();
             }
         }
 
-        System.out.print("Input elements of matrix B: ");
+        System.out.println("Input elements of matrix B: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 B[i][j] = in.nextInt();
